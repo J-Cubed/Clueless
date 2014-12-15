@@ -49,6 +49,18 @@ public class clueLessModel {
 	private Player player4;
 	private Player player5;
 	private Player player6;
+	private Location hallway1;
+	private Location hallway2;
+	private Location hallway3;
+	private Location hallway4;
+	private Location hallway5;
+	private Location hallway6;
+	private Location hallway7;
+	private Location hallway8;
+	private Location hallway9;
+	private Location hallway10;
+	private Location hallway11;
+	private Location hallway12;
 	private Player[] playerList;
 	private Location[] locationList;
 	private int numActivePlayers;
@@ -69,18 +81,18 @@ public class clueLessModel {
 		conservatory = new Room("Conservatory","conservatory");
 		ballroom = new Room("Ballroom","ballroom");
 		kitchen = new Room("kitchen","kitchen");
-		Location hallway1 = new Location("Hallway One","hwy1");
-		Location hallway2 = new Location("Hallway Two","hwy2");
-		Location hallway3 = new Location("Hallway Three","hwy3");
-		Location hallway4 = new Location("Hallway Four","hwy4");
-		Location hallway5 = new Location("Hallway Five","hwy5");
-		Location hallway6 = new Location("Hallway Six","hwy6");
-		Location hallway7 = new Location("Hallway Seven","hwy7");
-		Location hallway8 = new Location("Hallway Eight","hwy8");
-		Location hallway9 = new Location("Hallway Nine","hwy9");
-		Location hallway10 = new Location("Hallway Ten","hwy10");
-		Location hallway11 = new Location("Hallway Eleven","hwy11");
-		Location hallway12 = new Location("Hallway Twelve","hwy12");
+		hallway1 = new Location("Hallway One","hwy1");
+		hallway2 = new Location("Hallway Two","hwy2");
+		hallway3 = new Location("Hallway Three","hwy3");
+		hallway4 = new Location("Hallway Four","hwy4");
+		hallway5 = new Location("Hallway Five","hwy5");
+		hallway6 = new Location("Hallway Six","hwy6");
+		hallway7 = new Location("Hallway Seven","hwy7");
+		hallway8 = new Location("Hallway Eight","hwy8");
+		hallway9 = new Location("Hallway Nine","hwy9");
+		hallway10 = new Location("Hallway Ten","hwy10");
+		hallway11 = new Location("Hallway Eleven","hwy11");
+		hallway12 = new Location("Hallway Twelve","hwy12");
 		
 		locationList = new Location[21];
 		locationList[0] = study;
@@ -129,11 +141,28 @@ public class clueLessModel {
         hallway12.setMoveOptions(ballroom, kitchen);
 		
 		player1 = new Player("Miss Scarlet", "scarlet", hallway2);
+		player1.notActivated = false;
+		hallway2.setOccupant(player1);
+		
 		player2 = new Player("Prof. Plum", "plum", hallway3);
+		player2.notActivated = false;
+		hallway3.setOccupant(player2);
+		
 		player3 = new Player("Col. Mustard", "mustard", hallway5);
+		player3.notActivated = false;
+		hallway5.setOccupant(player3);
+		
 		player4 = new Player("Mrs. Peacock", "peacock", hallway8);
+		player4.notActivated = false;
+		hallway8.setOccupant(player4);
+		
 		player5 = new Player("Mr. Green", "green", hallway11);
+		player5.notActivated = false;
+		hallway11.setOccupant(player5);
+		
 		player6 = new Player("Mrs. White", "white", hallway12);
+		player6.notActivated = false;
+		hallway12.setOccupant(player6);
 		
 		playerList = new Player[6];
 		playerList[0] = player1;
@@ -363,11 +392,22 @@ public class clueLessModel {
 				throw new Exception(errorMessage);
 			}//end if
 			else {
+				study.setMoveOptions(hallway1, hallway3, kitchen);
+				hall.setMoveOptions(hallway1, hallway2, hallway4);
+				lounge.setMoveOptions(hallway2, hallway5, conservatory);
+				library.setMoveOptions(hallway3, hallway6, hallway8);
+				billardRoom.setMoveOptions(hallway4, hallway6, hallway7, hallway9);
+				diningRoom.setMoveOptions(hallway5, hallway7, hallway10);
+				conservatory.setMoveOptions(hallway8, hallway11, lounge);
+				ballroom.setMoveOptions(hallway11, hallway9, hallway12);
+				kitchen.setMoveOptions(hallway12, hallway10, study);
+				
 				System.out.println("Can Move to:");
 				System.out.println();
 				
 				Location current =  player.getLocation();
 				Location[] options = current.moveOptions();
+				
 				Location one = options[0];
 				Location two = options[1];
 				Location three = options[0];
@@ -389,40 +429,60 @@ public class clueLessModel {
 				System.out.println();
 
 				if (movePlace == 1){
+					current.removeOccupant(player, current);
+					one.setOccupant(player);					
 					player.move(one);
 					player.moved = true;
 
-					statusMessage = player.name + " has moved to the " + one.name;
+					statusMessage = player.name + " has moved from " + current.name + " to the " + one.name;
 					
 					moveHistory.add(statusMessage);
 					System.out.println(statusMessage);
+					
+					current.printOccupants();
+					one.printOccupants();
 				}//end if
-				else if (movePlace == 2){
+				else if (movePlace == 2 && options[1] != null){
+					current.removeOccupant(player, current);
+					two.setOccupant(player);	
 					player.move(two);
 					player.moved = true;
 					
-					statusMessage = player.name + " has moved to the " + two.name;
+					statusMessage = player.name + " has moved from " + current.name + " to the " + two.name;
 					
 					moveHistory.add(statusMessage);
 					System.out.println(statusMessage);
+					
+					current.printOccupants();
+					two.printOccupants();
 				}//end if
-				else if (movePlace == 3 && threeTrue){
+				else if (movePlace == 3 && threeTrue && options[2] != null){
+					current.removeOccupant(player, current);
+					three.setOccupant(player);
 					player.move(three);
 					player.moved = true;
 					
-					statusMessage = player.name + " has moved to the " + three.name;
+					statusMessage = player.name + " has moved from " + current.name + " to the " + three.name;
 					
 					moveHistory.add(statusMessage);
 					System.out.println(statusMessage);
+					
+					current.printOccupants();
+					three.printOccupants();
 				}//end if
-				else if (movePlace == 4 &&  fourTrue){
+				else if (movePlace == 4 &&  fourTrue && options[3] != null){
+					current.removeOccupant(player, current);
+					four.setOccupant(player);
 					player.move(four);
 					player.moved = true;
 					
-					statusMessage = player.name + " has moved to the " + four.name;
+					statusMessage = player.name + " has moved from " + current.name + " to the " + four.name;
 					
 					moveHistory.add(statusMessage);
 					System.out.println(statusMessage);
+					
+					current.printOccupants();
+					four.printOccupants();
 				}//end if
 				else {
 					errorMessage = "Invalid input, try again";
