@@ -106,24 +106,27 @@ public class clueLessModel {
 		locationList[19] = hallway11;
 		locationList[20] = hallway12;
 		
-		study.setMoveOptions(hallway1, hallway3, billardRoom);
-		hallway1.setMoveOptions(study, hall);
+		study.setMoveOptions(hallway1, hallway3, kitchen);
 		hall.setMoveOptions(hallway1, hallway2, hallway4);
-		hallway2.setMoveOptions(hall, lounge);
-		lounge.setMoveOptions(hallway2, hallway3, billardRoom);
-		hallway3.setMoveOptions(study, library);
-		hallway4.setMoveOptions(hall, billardRoom);
-		hallway5.setMoveOptions(lounge, diningRoom);
+		lounge.setMoveOptions(hallway2, hallway5, conservatory);
 		library.setMoveOptions(hallway3, hallway6, hallway8);
 		billardRoom.setMoveOptions(hallway4, hallway6, hallway7, hallway9);
 		diningRoom.setMoveOptions(hallway5, hallway7, hallway10);
+		conservatory.setMoveOptions(hallway8, hallway11, lounge);
+		ballroom.setMoveOptions(hallway11, hallway9, hallway12);
+		kitchen.setMoveOptions(hallway12, hallway10, study);
+		hallway1.setMoveOptions(study, hall);
+		hallway2.setMoveOptions(hall, lounge);
+		hallway3.setMoveOptions(study, library);
+		hallway4.setMoveOptions(hall, billardRoom);
+		hallway5.setMoveOptions(lounge, diningRoom);
+		hallway6.setMoveOptions(library, billardRoom);
+		hallway7.setMoveOptions(billardRoom, diningRoom);
 		hallway8.setMoveOptions(library, conservatory);
 		hallway9.setMoveOptions(billardRoom, ballroom);
 		hallway10.setMoveOptions(diningRoom, kitchen);
-		conservatory.setMoveOptions(hallway8, hallway11, billardRoom);
 		hallway11.setMoveOptions(conservatory, ballroom);
-		ballroom.setMoveOptions(hallway11, hallway9, hallway12);
-		kitchen.setMoveOptions(hallway12, hallway10, billardRoom);
+		hallway12.setMoveOptions(ballroom, kitchen);
 		
 		player1 = new Player("Miss Scarlet", "scarlet", hallway2);
 		player2 = new Player("Prof. Plum", "plum", hallway3);
