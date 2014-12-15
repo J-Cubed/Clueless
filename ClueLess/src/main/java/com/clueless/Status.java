@@ -17,12 +17,13 @@ public class Status {
 	private ArrayList<String> statusUpdate;
 	private ArrayList<String> moveHistoryUpdate;
 	
-	private Map<String, String> locations;
+	private String[] locations;
+	private Map<String, String> playerLocations;
   
 	protected Status() {  
 	}
 	
-	public Status(boolean isMyTurn, boolean isGamePlayable, boolean isGameActive, boolean allowSuggest, boolean allowMove, ArrayList<String> statusUpdate, ArrayList<String> moveHistoryUpdate, Map<String, String> locations) {
+	public Status(boolean isMyTurn, boolean isGamePlayable, boolean isGameActive, boolean allowSuggest, boolean allowMove, ArrayList<String> statusUpdate, ArrayList<String> moveHistoryUpdate, String[] locations, Map<String, String> playerLocations) {
 		this.isMyTurn = isMyTurn;
 		this.isGamePlayable = isGamePlayable;
 		this.isGameActive = isGameActive;
@@ -33,6 +34,7 @@ public class Status {
 		this.moveHistoryUpdate = moveHistoryUpdate;
 		
 		this.locations = locations;
+		this.playerLocations = playerLocations;
 	}
 	
 	public boolean getIsMyTurn() {  
@@ -98,12 +100,21 @@ public class Status {
 		this.moveHistoryUpdate = moveHistoryUpdate;  
 	}
 	
-	public Map<String,String> getLocations() {  
+	public String[] getLocations() {  
 		return locations;  
 	}  
 		 
 	@XmlElement
-	public void setLocations(Map<String,String> locations) {  
+	public void setLocations(String[] locations) {  
 		this.locations = locations;  
+	}
+	
+	public Map<String,String> getPlayerLocations() {  
+		return playerLocations;  
+	}  
+		 
+	@XmlElement
+	public void setPlayerLocations(Map<String,String> locations) {  
+		this.playerLocations = playerLocations;  
 	}
 }

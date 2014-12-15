@@ -176,7 +176,8 @@ public class clueLessController {
 			status = game.getGameBoard().getStatus();
 			moveHistory = game.getGameBoard().getMoveHistory();
 			ArrayList<String> cards = game.getGameBoard().getCards(session.getId());
-			Map<String, String> curLocations = game.getGameBoard().getLocations();
+			String[] curLocations = game.getGameBoard().getLocations();
+			Map<String, String> curPlayerLocations = game.getGameBoard().getPlayerLocations();
 			
 			System.out.println(errorMessage);
 			
@@ -193,6 +194,7 @@ public class clueLessController {
 			mv.addObject("isGameActive", game.getGameBoard().isActive());
 			mv.addObject("playerName",game.getGameBoard().getPlayer(session.getId()).name);
 			mv.addObject("curLocations", curLocations);
+			mv.addObject("curPlayerLocations", curPlayerLocations);
 			
 			if (isMyTurn && !game.getGameBoard().hasMoved())
 				mv.addObject("allowMove", true);
@@ -513,9 +515,10 @@ public class clueLessController {
 			ArrayList<String> statusUpdates = new ArrayList<String>(status.subList(scount, status.size()));
 			ArrayList<String> moveHistory = game.getGameBoard().getMoveHistory();
 			ArrayList<String> moveHistoryUpdates = new ArrayList<String>(moveHistory.subList(mcount, moveHistory.size()));
-			Map<String, String> curLocations = game.getGameBoard().getLocations();
+			String[] curLocations = game.getGameBoard().getLocations();
+			Map<String, String> curPlayerLocations = game.getGameBoard().getPlayerLocations();
 		
-			return new Status(isMyTurn, isGamePlayable, isGameActive, allowSuggest, allowMove, statusUpdates, moveHistoryUpdates, curLocations); 
+			return new Status(isMyTurn, isGamePlayable, isGameActive, allowSuggest, allowMove, statusUpdates, moveHistoryUpdates, curLocations, curPlayerLocations); 
 		}  else {
 			throw new Exception();
 		}
