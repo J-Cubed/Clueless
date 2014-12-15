@@ -18,40 +18,155 @@
 	position: absolute;
 }
 
+ul, li {
+	list-style-type: none;
+/*     list-style-position:inside; */
+    margin: 1px;
+    padding:0;
+}
+
 #study {
-	top: 30px;
-	left: 95px;
+/* 	background-color: yellow; */
+/* 	height: 75px;
+	width: 100px; */
+	position: absolute;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	list-style: none;
+	flex-flow: row wrap;
+  	-webkit-flex-flow: row-wrap;
+	top: 40px;
+	left: 100px;
 }
 
 #hall {
+/* 	height: 75px;
+	width: 100px; */
+	background-size: contain;
+	position: absolute;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	list-style: none;
+	flex-flow: row wrap;
+  	-webkit-flex-flow: row-wrap;
 	top: 30px;
 	left: 330px;
 }
 #lounge {
+/* 	height: 75px;
+	width: 100px; */
+	background-size: contain;
+	position: absolute;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	list-style: none;
+	flex-flow: row wrap;
+  	-webkit-flex-flow: row-wrap;
 	top: 30px;
 	left: 555px
 }
 #library {
+/* 	height: 75px;
+	width: 100px; */
+	background-size: contain;
+	position: absolute;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	list-style: none;
+	flex-flow: row wrap;
+  	-webkit-flex-flow: row-wrap;
 	top: 240px;
 	left: 95px;
 }
 #billiard {
+/* 	height: 75px;
+	width: 100px; */
+	background-size: contain;
+	position: absolute;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	list-style: none;
+	flex-flow: row wrap;
+  	-webkit-flex-flow: row-wrap;
 	top: 240px;
 	left: 330px;
 }
 #dining {
+/* 	height: 75px;
+	width: 100px; */
+	background-size: contain;
+	position: absolute;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	list-style: none;
+	flex-flow: row wrap;
+  	-webkit-flex-flow: row-wrap;
 	top: 240px;
 	left: 555px;
 }
 #conservatory {
+/* 	height: 75px;
+	width: 100px; */
+	background-size: contain;
+	position: absolute;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	list-style: none;
+	flex-flow: row wrap;
+  	-webkit-flex-flow: row-wrap;
 	top: 440px;
 	left: 95px;
 }
 #ballroom {
+/* 	height: 75px;
+	width: 100px; */
+	background-size: contain;
+	position: absolute;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	list-style: none;
+	flex-flow: row wrap;
+  	-webkit-flex-flow: row-wrap;
 	top: 440px;
 	left: 330px;
 }
 #kitchen {
+/* 	height: 75px;
+	width: 100px; */
+	background-size: contain;
+	position: absolute;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	list-style: none;
+	flex-flow: row wrap;
+  	-webkit-flex-flow: row-wrap;
 	top: 480px;
 	left: 555px;
 }
