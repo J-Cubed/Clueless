@@ -343,16 +343,29 @@ public class clueLessModel {
 		if(player.hasTurn){
 			Location current =  player.getLocation();
 			Location[] options = current.moveOptions();
-			Location one = options[0];
-			Location two = options[1];
-			Location three = options[0];
-			Location four = options[0];
+			
 			ArrayList<String> outputOptions = new ArrayList<String>();
+			Location one = options[0];
+			Location two = options [0];
+			Location three = options [0];
+			Location four = options[0];
+		
+//			System.out.print("1 = " + one.name + ", 2 = " + two.name);
+			if(options[0] != null) {
+				one = options[0];
+				two = options[0];
+				three = options[0];
+				four = options[0];
+				outputOptions.add(one.name);
+				System.out.print("1 = " + one.name);
+			}
 			
-			System.out.print("1 = " + one.name + ", 2 = " + two.name);
+			if (options[1] != null){
+				two = options[1];
+				outputOptions.add(two.name);
+				System.out.print(", 2 = " + two.name);
+			}//end if
 			
-			outputOptions.add(one.name);
-			outputOptions.add(two.name);
 			
 			if (options[2] != null){
 				three = options[2];
@@ -409,13 +422,26 @@ public class clueLessModel {
 				Location[] options = current.moveOptions();
 				
 				Location one = options[0];
-				Location two = options[1];
-				Location three = options[0];
+				Location two = options [0];
+				Location three = options [0];
 				boolean threeTrue = false;
 				Location four = options[0];
 				boolean fourTrue = false;
 				
-				System.out.print("1 = " + one.name + ", 2 = " + two.name);
+//				System.out.print("1 = " + one.name + ", 2 = " + two.name);
+				if(options[0] != null) {
+					one = options[0];
+					two = options[0];
+					three = options[0];
+					four = options[0];
+					System.out.print("1 = " + one.name);
+				}
+				
+				if (options[1] != null){
+					two = options[1];
+					System.out.print(", 2 = " + two.name);
+				}//end if
+
 				if (options[2] != null){
 					three = options[2];
 					threeTrue = true;
