@@ -8,14 +8,7 @@
 <script type="text/javascript" src="resources/js/scripts.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Main Menu</title>
-<style type="text/css">
-	.gameblock { float:left;width:100px; }
-	.label { clear:both;float:left;text-align:left;font-weight:bold; }
-	.clearfix {clear:both; }
-	.floatleft { float:left; }
-	.floatright { float:right; }
-	.floatnone { float:none; }
-</style>
+
 </head>
 <body>	
 	<h2>Game Screen</h2>
@@ -85,9 +78,6 @@
 		<aside class="aside aside-left">
 			<h3>Game Board</h3>
 			<div class="gameboard">
-<%-- 				<c:forEach var="loc" items="${curLocations}">
-				  <div id="${loc.key}" class="${loc.value} abs"></div>
-				</c:forEach> --%>
 				<c:forEach var="loc" items="${curLocations}">
 					<ul id="${loc}" class="abs">
 						<c:forEach var="plyr" items="${curPlayerLocations}">
@@ -97,12 +87,6 @@
 						</c:forEach>
 					</ul>
 				</c:forEach>
-<!-- 				<ul class="green abs" id="study"/>
-				<ul class="scarlet abs" id="study"/>
-				<div class="scarlet abs"/>
-				<div class="scarlet abs"/>
-				<div class="scarlet abs"/> -->
-
 			</div>
 		</aside>
 	</div>

@@ -3,9 +3,7 @@ h1, h2, h3, footer{
 	text-align: center;
 }
 
-img.main {
-	src: url("../../resources/images/Header_Logo-small_v2.jpg");
-}
+
 .center {
 	display: block;
 	margin-right: auto;

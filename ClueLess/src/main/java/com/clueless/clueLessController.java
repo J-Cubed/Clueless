@@ -469,6 +469,30 @@ public class clueLessController {
 		}
 	}
 	
+	@RequestMapping("/gameover")
+	public ModelAndView showGameOver(
+			HttpSession session) {
+		System.out.println("in controller - gameover");
+		
+
+		Game game = getGameById(String.valueOf(session.getAttribute("gameId")));
+		
+		if (game != null) {
+		
+			ArrayList<String> casefile = game.getGameBoard().getCaseFile();
+			
+			System.out.println(errorMessage);
+	 
+			ModelAndView mv = new ModelAndView("gameover");
+			mv.addObject("errorMessage", errorMessage);
+			errorMessage = "";
+			mv.addObject("casefile", casefile);
+			return mv;
+		}  else {
+			return new ModelAndView("redirect:/mainmenu");
+		}
+	}
+	
 	@RequestMapping(value="/ajaxStatus", method = RequestMethod.POST)
 	public @ResponseBody Status getStatus(
 			@RequestParam(value = "startGame", required = false) String startGame,
