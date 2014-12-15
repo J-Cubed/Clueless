@@ -27,8 +27,8 @@ ul, li {
 
 #study {
 /* 	background-color: yellow; */
-/* 	height: 75px;
-	width: 100px; */
+	height: 75px;
+	width: 100px;
 	position: absolute;
 	display: -webkit-box;
 	display: -moz-box;
@@ -43,8 +43,8 @@ ul, li {
 }
 
 #hall {
-/* 	height: 75px;
-	width: 100px; */
+	height: 75px;
+	width: 100px;
 	background-size: contain;
 	position: absolute;
 	display: -webkit-box;
@@ -59,8 +59,8 @@ ul, li {
 	left: 330px;
 }
 #lounge {
-/* 	height: 75px;
-	width: 100px; */
+	height: 75px;
+	width: 100px;
 	background-size: contain;
 	position: absolute;
 	display: -webkit-box;
@@ -75,8 +75,8 @@ ul, li {
 	left: 555px
 }
 #library {
-/* 	height: 75px;
-	width: 100px; */
+	height: 75px;
+	width: 100px;
 	background-size: contain;
 	position: absolute;
 	display: -webkit-box;
@@ -91,8 +91,8 @@ ul, li {
 	left: 95px;
 }
 #billiard {
-/* 	height: 75px;
-	width: 100px; */
+	height: 75px;
+	width: 100px;
 	background-size: contain;
 	position: absolute;
 	display: -webkit-box;
@@ -103,12 +103,12 @@ ul, li {
 	list-style: none;
 	flex-flow: row wrap;
   	-webkit-flex-flow: row-wrap;
-	top: 240px;
+	top: 260px;
 	left: 330px;
 }
 #dining {
-/* 	height: 75px;
-	width: 100px; */
+	height: 75px;
+	width: 100px;
 	background-size: contain;
 	position: absolute;
 	display: -webkit-box;
@@ -123,8 +123,8 @@ ul, li {
 	left: 555px;
 }
 #conservatory {
-/* 	height: 75px;
-	width: 100px; */
+	height: 75px;
+	width: 100px;
 	background-size: contain;
 	position: absolute;
 	display: -webkit-box;
@@ -139,8 +139,8 @@ ul, li {
 	left: 95px;
 }
 #ballroom {
-/* 	height: 75px;
-	width: 100px; */
+	height: 75px;
+	width: 100px;
 	background-size: contain;
 	position: absolute;
 	display: -webkit-box;
@@ -155,8 +155,8 @@ ul, li {
 	left: 330px;
 }
 #kitchen {
-/* 	height: 75px;
-	width: 100px; */
+	height: 75px;
+	width: 100px;
 	background-size: contain;
 	position: absolute;
 	display: -webkit-box;

@@ -1,5 +1,6 @@
 package com.clueless;
 
+
 public class Player {
 		String name;
 		String codename;
@@ -8,10 +9,12 @@ public class Player {
 		Card[] cards = new Card[3];
 		boolean suggestionMadeHere;
 		boolean hasTurn;
-		boolean moved;
+		boolean moved = false;
 		boolean disabled = true;
+		boolean notActivated = true;
 		private boolean isAdmin = false;
 		Card[] suggestion = new Card[3];
+//		ArrayList<String> suggestion = new ArrayList<String>(3);
 		Card[] accusation = new Card[3];
 		public Player(String name, String codename, Location initialLocation) {
 			this.name = name;
@@ -19,12 +22,13 @@ public class Player {
 			location = initialLocation;
 		}//end constructor
 		public void move(Location newLocation) {
-			if(hasTurn && !moved) {
+			if(hasTurn || moved) {
 				location = newLocation;
 				suggestionMadeHere = false;
 			}//end if
 			else
 				System.out.println("You cannot move because it is not your turn.");
+			moved = false;
 		}//end move()
 		public void endTurn() {
 			hasTurn = false;
@@ -35,6 +39,10 @@ public class Player {
 				suggestion[0] = player;
 				suggestion[1] = weapon;
 				suggestion[2] = location;
+//				suggestion.add(0, player.codename);
+//				suggestion.add(1, weapon.name);
+//				suggestion.add(2, location.name);
+				
 				suggestionMadeHere = true;
 			}//end if
 			else {
@@ -51,6 +59,7 @@ public class Player {
 			else
 				System.out.println("You cannot make an accusation because it is not your turn.");
 		}//end makeAccusation()
+		
 		public Card[] proveOrDisproveSuggestion(Card[] attemptedSuggestion) {
 			Card[] matches = new Card[3];
 			for (int i = 0; i < attemptedSuggestion.length; i++) {
@@ -64,6 +73,7 @@ public class Player {
 				System.out.println(name + " cannot disprove the suggestion");
 			return matches;
 		}//end proveOrDisproveSuggestion()
+		
 		public Card[] proveOrDisproveAccusation(Card[] attemptedAccusation) {
 			Card[] matches = new Card[3];
 			for (int i = 0; i < attemptedAccusation.length; i++) {
@@ -77,6 +87,7 @@ public class Player {
 				System.out.println(name + " cannot disprove the accusation");
 			return matches;
 		}//end proveOrDisproveSuggestion()
+		
 		public Location getLocation() {
 			return location;
 		}//end getLocation()
