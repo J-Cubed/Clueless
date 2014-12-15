@@ -5,10 +5,10 @@ public class BillardRoom extends Location {
 			super(name, codename);
 		}//end constructor
 		public void setMoveOptions(Location option1, Location option2, Location option3, Location option4) {
-			adjacent[0] = option1;
-			adjacent[1] = option2;
-			adjacent[2] = option3;
-			adjacent[3] = option4;
+			adjacent[0] = null;
+			adjacent[1] = null;
+			adjacent[2] = null;
+			adjacent[3] = null;
 			int count = 0;
 			if (option1.isOccupied() == false){
 				adjacent[count] = option1;

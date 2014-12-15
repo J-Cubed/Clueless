@@ -713,10 +713,92 @@ public class clueLessModel {
 					player.makeSuggestion(playerS, playerW, playerR);
 					
 					statusMessage = player.name + " has suggested: " + playerS.name + " with the " + playerW.name + " in the " + playerR.name;
+						
+					status.add(statusMessage);
+					System.out.println(statusMessage);
+					System.out.println();
+					
+					// Moving players based on suggestion
+					Location fromHere;
+					Location toHere = player.getLocation();
+					
+					if (suggestPlayer == 1){
+						fromHere = player1.getLocation();
+						fromHere.removeOccupant(player1, fromHere);
+
+						toHere.setOccupant(player1);
+						player1.moved = true;
+						player1.move(toHere);
+						statusMessage = player1.name + " has been moved from " + fromHere.name + " to " + toHere.name;
+						System.out.println(player1.name + " has been moved from " + fromHere.name + " to " + toHere.name);
+						fromHere.printOccupants();
+						toHere.printOccupants();
+					}//end if
+					else if (suggestPlayer == 2){
+						fromHere = player2.getLocation();
+						fromHere.removeOccupant(player2, fromHere);
+	
+						toHere.setOccupant(player2);
+						player2.moved = true;
+						player2.move(toHere);
+						statusMessage = player2.name + " has been moved from " + fromHere.name + " to " + toHere.name;
+						System.out.println(player2.name + " has been moved from " + fromHere.name + " to " + toHere.name);
+						fromHere.printOccupants();
+						toHere.printOccupants();
+					}//end if
+					else if (suggestPlayer == 3){
+						fromHere = player3.getLocation();
+						fromHere.removeOccupant(player3, fromHere);
+	
+						toHere.setOccupant(player3);
+						player3.moved = true;
+						player3.move(toHere);
+						statusMessage = player3.name + " has been moved from " + fromHere.name + " to " + toHere.name;
+						System.out.println(player3.name + " has been moved from " + fromHere.name + " to " + toHere.name);
+						fromHere.printOccupants();
+						toHere.printOccupants();
+					}//end if
+					else if ((suggestPlayer == 4) && (player4.name != "Placeholder")){
+						fromHere = player4.getLocation();
+						fromHere.removeOccupant(player4, fromHere);
+	
+						toHere.setOccupant(player4);
+						player4.moved = true;
+						player4.move(toHere);
+						statusMessage = player4.name + " has been moved from " + fromHere.name + " to " + toHere.name;
+						System.out.println(player4.name + " has been moved from " + fromHere.name + " to " + toHere.name);
+						fromHere.printOccupants();
+						toHere.printOccupants();
+					}//end if
+					else if ((suggestPlayer == 5) && (player5.name != "Placeholder")){
+						fromHere = player5.getLocation();
+						fromHere.removeOccupant(player5, fromHere);
+
+						toHere.setOccupant(player5);
+						player5.moved = true;
+						player5.move(toHere);
+						statusMessage = player5.name + " has been moved from " + fromHere.name + " to " + toHere.name;
+						System.out.println(player5.name + " has been moved from " + fromHere.name + " to " + toHere.name);
+						fromHere.printOccupants();
+						toHere.printOccupants();
+					}//end if
+					else if ((suggestPlayer == 6) && (player6.name != "Placeholder")){
+						fromHere = player6.getLocation();
+						fromHere.removeOccupant(player6, fromHere);
+
+						toHere.setOccupant(player6);
+						player6.moved = true;
+						player6.move(toHere);
+						statusMessage = player6.name + " has been moved from " + fromHere.name + " to " + toHere.name;
+						System.out.println(player6.name + " has been moved from " + fromHere.name + " to " + toHere.name);
+						fromHere.printOccupants();
+						toHere.printOccupants();
+					} // end if
 					
 					status.add(statusMessage);
 					System.out.println(statusMessage);
 					System.out.println();
+					
 					
 					for (Player p : playerList) {
 						Card[] c = p.proveOrDisproveSuggestion(player.suggestion);
