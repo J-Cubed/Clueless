@@ -796,31 +796,19 @@ public class clueLessModel {
 		return outputCards;
 	}
 	
-	public String[] getLocations() {
-		String[] locations = new String[21];
-		int count = 0;
-		
-		for (Location l : locationList) {
-			locations[count] = l.codename;
-			count++;
-		}
-		
-		return locations;
-	}
-	
-	public Map<String, String> getPlayerLocations() {
+	public Map<String, String> getLocations() {
 		Map<String, String> locations = new HashMap<String, String>();
 		
-		for (Player p : playerList) {
-			String tmpLCodeName = "";
+		for (Location l : locationList) {
+			String tmpPCodeName = "";
 			
-			for (Location l : locationList) {
-				if (l.codename.equals(p.location.codename)) {
-					tmpLCodeName = l.codename;
+			for (Player p : playerList) {
+				if (p.location.codename.equals(l.codename)) {
+					tmpPCodeName = p.codename;
 				}
 			}
 			
-			locations.put(p.codename, tmpLCodeName);
+			locations.put(l.codename, tmpPCodeName);
 		}
 		
 		return locations;

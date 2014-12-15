@@ -89,12 +89,8 @@
 				  <div id="${loc.key}" class="${loc.value} abs"></div>
 				</c:forEach> --%>
 				<c:forEach var="loc" items="${curLocations}">
-					<ul id="${loc}" class="abs">
-						<c:forEach var="plyr" items="${curPlayerLocations}">
-							<c:if test="${loc == plyr.value}">
-								<li class="${plyr.key}"/>
-							</c:if>
-						</c:forEach>
+					<ul id="${loc.key}" class="abs">
+						<li class="${loc.value}"/>
 					</ul>
 				</c:forEach>
 <!-- 				<ul class="green abs" id="study"/>
@@ -264,17 +260,15 @@
 		$(xml).find("entry").each(function() {
 			var key = $(this).find('key').text().toString();
 			var value = $(this).find('value').text().toString();
-			var append = false;
 			
-			$( "." + key ).each(function( index ) {
-				if ($(this).parent().attr('id') != value) {
-					$(this).remove();
-					append = true;
+			if (!value) {
+				$( "#" + key ).removeClass();
+				$( "#" + key ).addClass( "abs" );
+			} else {
+				if (!$( "#" + key ).hasClass( value )) {
+					$( "#" + key ).removeClass();
+					$( "#" + key ).addClass( value + " abs" );
 				}
-			});
-			
-			if (append) {
-				$( "#" + value ).append( "<li class=\"" + key + "\"/>" );	
 			}
 		});
 	}

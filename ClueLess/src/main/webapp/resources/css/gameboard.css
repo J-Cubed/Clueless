@@ -232,26 +232,26 @@ ul, li {
 	left: 615px;
 	
 }
-.scarlet:before {
+.scarlet {
  	content: url("../../resources/images/Scarlet_small.png");
  }
 
-.mustard:before {
+.mustard {
 	content: url("../../resources/images/Mustard_small.png");
 }
 
-.green:before {
+.green {
 	content: url("../../resources/images/Green_small.png");
 }
 
-.white:before {
+.white {
 	content: url("../../resources/images/White_small.png");
 }
 
-.plum:before {
+.plum {
 	content: url("../../resources/images/Plum_small.png");
 }
 
-.peacock:before {
+.peacock {
 	content: url("../../resources/images/Peacock_small.png");
 }
