@@ -141,10 +141,12 @@
 	var isMyTurn = "${isMyTurn}";
 	var allowSuggest = "${allowSuggest}";
 	var allowMove = "${allowMove}";
+	var isGameEnd = "${isGameEnd}";
 	var scount = ${scount};
 	var mcount = ${mcount};
 	
 	updateControls();
+	checkIfGameEnd();
 	$( "#frmDetNote" ).change(function() {
 		$.post('detectivenotebook', $('#frmDetNote').serialize())
 		
@@ -169,8 +171,10 @@
 		   }, 5000);
 	})();
 	
-	function saveNotebook() {
-		
+	function checkIfGameEnd() {
+		if (isGameEnd === "true") {
+			location.href = "gameover";
+		}
 	}
 	function updateControls() {
 		if (isAdmin === "true" && isGamePlayable === "true" && isGameActive !== "true") {
@@ -229,6 +233,7 @@
 		isMyTurn = $(xml).find('isMyTurn').text().toString();
 		allowSuggest = $(xml).find('allowSuggest').text().toString();
 		allowMove = $(xml).find('allowMove').text().toString();
+		isGameEnd = $(xml).find('isGameEnd').text().toString();
 		
 		$(xml).find("statusUpdate").each(function() {
 			scount++;
@@ -243,6 +248,7 @@
 		$('#moveHistory').scrollTop($('#moveHistory')[0].scrollHeight);
 		
 		updateControls();
+		checkIfGameEnd();
 	}
 	function processLocations(xml) {
 		$(xml).find("entry").each(function() {

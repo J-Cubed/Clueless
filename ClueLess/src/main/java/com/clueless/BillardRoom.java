@@ -10,21 +10,21 @@ public class BillardRoom extends Location {
 			adjacent[2] = null;
 			adjacent[3] = null;
 			int count = 0;
-			if (option1.isOccupied() == false){
+			//if (option1.isOccupied() == false){
 				adjacent[count] = option1;
 				count++;
-			}//end if
-			if (option2.isOccupied() == false){
+			//}//end if
+			//if (option2.isOccupied() == false){
 				adjacent[count] = option2;
 				count++;
-			}//end if
-			if (option3.isOccupied() == false){
+			//}//end if
+			//if (option3.isOccupied() == false){
 				adjacent[count] = option3;
 				count++;
-			}//end if
-			if (option4.isOccupied() == false){
+			//}//end if
+			//if (option4.isOccupied() == false){
 				adjacent[count] = option4;
 				count++;
-			}//end if
+			//}//end if
 		}//end setToMoveOptions()
 }//end BillardRoom class

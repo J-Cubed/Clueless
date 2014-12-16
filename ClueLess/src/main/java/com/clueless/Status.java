@@ -13,6 +13,7 @@ public class Status {
 	private boolean isGameActive;
 	private boolean allowSuggest;
 	private boolean allowMove;
+	private boolean isGameEnd;
 	
 	private ArrayList<String> statusUpdate;
 	private ArrayList<String> moveHistoryUpdate;
@@ -23,7 +24,7 @@ public class Status {
 	protected Status() {  
 	}
 	
-	public Status(boolean isMyTurn, boolean isGamePlayable, boolean isGameActive, boolean allowSuggest, boolean allowMove, ArrayList<String> statusUpdate, ArrayList<String> moveHistoryUpdate, String[] locations, Map<String, String> playerLocations) {
+	public Status(boolean isMyTurn, boolean isGamePlayable, boolean isGameActive, boolean allowSuggest, boolean allowMove, ArrayList<String> statusUpdate, ArrayList<String> moveHistoryUpdate, String[] locations, Map<String, String> playerLocations, boolean isGameEnd) {
 		this.isMyTurn = isMyTurn;
 		this.isGamePlayable = isGamePlayable;
 		this.isGameActive = isGameActive;
@@ -35,6 +36,8 @@ public class Status {
 		
 		this.locations = locations;
 		this.playerLocations = playerLocations;
+		
+		this.isGameEnd = isGameEnd;
 	}
 	
 	public boolean getIsMyTurn() {  
@@ -116,5 +119,14 @@ public class Status {
 	@XmlElement
 	public void setPlayerLocations(Map<String,String> locations) {  
 		this.playerLocations = playerLocations;  
+	}
+	
+	public boolean getIsGameEnd() {  
+		return isGameEnd;  
+	}  
+		 
+	@XmlElement
+	public void setIsGameEnd(boolean isGameEnd) {  
+		this.isGameEnd = isGameEnd;  
 	}
 }

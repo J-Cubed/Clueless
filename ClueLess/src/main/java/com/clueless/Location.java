@@ -51,10 +51,31 @@ public class Location {
 			}//end if
 		}//end removeOccupant()
 		public Location[] moveOptions(){
-			if(adjacent[0] == null){
-				System.out.println("All possible move locations are occupied hallways");
+			Location[] options = new Location[4];
+			options[0] = null;
+			options[1] = null;
+			options[2] = null;
+			options[3] = null;
+			int count = 0;
+			
+			if (adjacent[0] != null && adjacent[0].isOccupied() == false){
+				options[count] = adjacent[0];
+				count++;
 			}//end if
-			return adjacent;
+			if (adjacent[1] != null && adjacent[1].isOccupied() == false){
+				options[count] = adjacent[1];
+				count++;
+			}//end if
+			if (adjacent[2] != null && adjacent[2].isOccupied() == false){
+				options[count] = adjacent[2];
+				count++;
+			}//end if
+			if (adjacent[3] != null && adjacent[3].isOccupied() == false){
+				options[count] = adjacent[3];
+				count++;
+			}//end if
+
+			return options;
 		}//end moveOptions()
 		public void setMoveOptions(Location option1, Location option2) {
 			adjacent[0] = null;
