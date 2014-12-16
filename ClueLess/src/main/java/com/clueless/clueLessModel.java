@@ -80,7 +80,7 @@ public class clueLessModel {
 		diningRoom = new Room("Dining Room","dining");
 		conservatory = new Room("Conservatory","conservatory");
 		ballroom = new Room("Ballroom","ballroom");
-		kitchen = new Room("kitchen","kitchen");
+		kitchen = new Room("Kitchen","kitchen");
 		hallway1 = new Location("Hallway One","hwy1");
 		hallway2 = new Location("Hallway Two","hwy2");
 		hallway3 = new Location("Hallway Three","hwy3");

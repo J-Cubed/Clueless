@@ -8,19 +8,12 @@
 <script type="text/javascript" src="resources/js/scripts.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Main Menu</title>
-<style type="text/css">
-	.gameblock { float:left;width:100px; }
-	.label { clear:both;float:left;text-align:left;font-weight:bold; }
-	.clearfix {clear:both; }
-	.floatleft { float:left; }
-	.floatright { float:right; }
-	.floatnone { float:none; }
-</style>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 </head>
-<body>	
-	<h2>Game Screen</h2>
-	
-	<!-- 	<div style="float:right;width:40%;"> -->
+<body class= "gamescreen">	
+
 	<div class="top">
 		<button id="move" class="nav-button">Move</button>
 		
@@ -42,7 +35,7 @@
 	</div>
 	<div class="wrapper">
 		<aside class="aside aside-right">
-			<h3>Detective Notebook</h3>
+			<h2>Detective Notebook</h2>
 			<form id="frmDetNote" action="" method="post">
 			<div class="notebook-container">
 				<div class="notebook-item">
@@ -83,10 +76,17 @@
 			</form>
 		</aside>
 		<aside class="aside aside-left">
-			<h3>Game Board</h3>
+			<h2>Game Board</h2>
 			<div class="gameboard">
 				<c:forEach var="loc" items="${curLocations}">
-				  <div id="${loc.key}" class="${loc.value} abs"></div>
+					<ul id="${loc}" class="abs">
+						<c:forEach var="plyr" items="${curPlayerLocations}">
+							<c:if test="${loc == plyr.value}">		
+								<li class="${plyr.key}"/>
+														
+							</c:if>
+						</c:forEach>
+					</ul>
 				</c:forEach>
 			</div>
 		</aside>
@@ -142,10 +142,12 @@
 	var isMyTurn = "${isMyTurn}";
 	var allowSuggest = "${allowSuggest}";
 	var allowMove = "${allowMove}";
+	var isGameEnd = "${isGameEnd}";
 	var scount = ${scount};
 	var mcount = ${mcount};
 	
 	updateControls();
+	checkIfGameEnd();
 	$( "#frmDetNote" ).change(function() {
 		$.post('detectivenotebook', $('#frmDetNote').serialize())
 		
@@ -167,11 +169,13 @@
 				},
 				complete: poll
 			});
-		   }, 5000);
+		   }, 3000);
 	})();
 	
-	function saveNotebook() {
-		
+	function checkIfGameEnd() {
+		if (isGameEnd === "true") {
+			location.href = "gameover";
+		}
 	}
 	function updateControls() {
 		if (isAdmin === "true" && isGamePlayable === "true" && isGameActive !== "true") {
@@ -230,6 +234,7 @@
 		isMyTurn = $(xml).find('isMyTurn').text().toString();
 		allowSuggest = $(xml).find('allowSuggest').text().toString();
 		allowMove = $(xml).find('allowMove').text().toString();
+		isGameEnd = $(xml).find('isGameEnd').text().toString();
 		
 		$(xml).find("statusUpdate").each(function() {
 			scount++;
@@ -244,20 +249,23 @@
 		$('#moveHistory').scrollTop($('#moveHistory')[0].scrollHeight);
 		
 		updateControls();
+		checkIfGameEnd();
 	}
 	function processLocations(xml) {
 		$(xml).find("entry").each(function() {
 			var key = $(this).find('key').text().toString();
 			var value = $(this).find('value').text().toString();
+			var append = false;
 			
-			if (!value) {
-				$( "#" + key ).removeClass();
-				$( "#" + key ).addClass( "abs" );
-			} else {
-				if (!$( "#" + key ).hasClass( value )) {
-					$( "#" + key ).removeClass();
-					$( "#" + key ).addClass( value + " abs" );
+			$( "." + key ).each(function( index ) {
+				if ($(this).parent().attr('id') != value) {
+					$(this).remove();
+					append = true;
 				}
+			});
+			
+			if (append) {
+				$( "#" + value ).append( "<li class=\"" + key + "\"/>" );	
 			}
 		});
 	}

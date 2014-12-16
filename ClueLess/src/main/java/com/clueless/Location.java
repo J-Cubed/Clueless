@@ -58,19 +58,19 @@ public class Location {
 			options[3] = null;
 			int count = 0;
 			
-			if (adjacent[0] != null && adjacent[0].isOccupied() == false){
+			if (adjacent[0] != null && (adjacent[0] instanceof Room || adjacent[0] instanceof BillardRoom || adjacent[0].isOccupied() == false)){
 				options[count] = adjacent[0];
 				count++;
 			}//end if
-			if (adjacent[1] != null && adjacent[1].isOccupied() == false){
+			if (adjacent[1] != null && (adjacent[1] instanceof Room || adjacent[1] instanceof BillardRoom || adjacent[1].isOccupied() == false)){
 				options[count] = adjacent[1];
 				count++;
 			}//end if
-			if (adjacent[2] != null && adjacent[2].isOccupied() == false){
+			if (adjacent[2] != null && (adjacent[2] instanceof Room || adjacent[2] instanceof BillardRoom || adjacent[2].isOccupied() == false)){
 				options[count] = adjacent[2];
 				count++;
 			}//end if
-			if (adjacent[3] != null && adjacent[3].isOccupied() == false){
+			if (adjacent[3] != null && (adjacent[3] instanceof Room || adjacent[3] instanceof BillardRoom || adjacent[3].isOccupied() == false)){
 				options[count] = adjacent[3];
 				count++;
 			}//end if

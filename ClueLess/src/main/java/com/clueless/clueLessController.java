@@ -537,8 +537,12 @@ public class clueLessController {
 				allowSuggest = true;
 			
 			ArrayList<String> status = game.getGameBoard().getStatus();
+			if (scount > status.size())
+				scount = status.size();
 			ArrayList<String> statusUpdates = new ArrayList<String>(status.subList(scount, status.size()));
 			ArrayList<String> moveHistory = game.getGameBoard().getMoveHistory();
+			if (mcount > moveHistory.size())
+				mcount = moveHistory.size();
 			ArrayList<String> moveHistoryUpdates = new ArrayList<String>(moveHistory.subList(mcount, moveHistory.size()));
 			String[] curLocations = game.getGameBoard().getLocations();
 			Map<String, String> curPlayerLocations = game.getGameBoard().getPlayerLocations();

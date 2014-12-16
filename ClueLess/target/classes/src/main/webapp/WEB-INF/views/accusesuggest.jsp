@@ -6,6 +6,9 @@
 <link href="<c:url value='/resources/css/main.css'/>" rel="stylesheet" type="text/css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Main Menu</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 </head>
 <body>	
 	<img src="resources/images/Header_Logo-small.jpg"  style="border:0;">
