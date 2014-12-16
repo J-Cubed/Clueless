@@ -10,18 +10,18 @@ public class Room extends Location {
 			adjacent[2] = null;
 			adjacent[3] = null;
 			int count = 0;
-			if (option1.isOccupied() == false){
+			//if (option1.isOccupied() == false){
 				adjacent[count] = option1;
 				count++;
-			}//end if
-			if (option2.isOccupied() == false){
+			//}//end if
+			//if (option2.isOccupied() == false){
 				adjacent[count] = option2;
 				count++;
-			}//end if
-			if (option3.name.equals("Study") ||  option3.name.equals("Lounge") || option3.name.equals("Conservatory") || option3.name.equals("Kitchen") || option3.isOccupied() == false){
+			//}//end if
+			//if (option3.name.equals("Study") ||  option3.name.equals("Lounge") || option3.name.equals("Conservatory") || option3.name.equals("Kitchen") || option3.isOccupied() == false){
 				adjacent[count] = option3;
 				count++;
-			}//end if
+			//}//end if
 			
 		}//end setToMoveOptions()
 	}//end Room class

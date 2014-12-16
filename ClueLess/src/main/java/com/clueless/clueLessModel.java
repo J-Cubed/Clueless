@@ -287,7 +287,10 @@ public class clueLessModel {
 		else
 			turn++;
 		
-		beginTurn();
+		if (getNumActivePlayers() == 0)
+			endGame();
+		else
+			beginTurn();
 	}
 	
 	public void beginTurn() {
@@ -329,6 +332,10 @@ public class clueLessModel {
 		
 		active = false;
 		endgame = true;
+	}
+	
+	public boolean isGameEnd() {
+		return endgame;
 	}
 	
 	public boolean hasMoved() {
@@ -730,7 +737,9 @@ public class clueLessModel {
 						player1.moved = true;
 						player1.move(toHere);
 						statusMessage = player1.name + " has been moved from " + fromHere.name + " to " + toHere.name;
-						System.out.println(player1.name + " has been moved from " + fromHere.name + " to " + toHere.name);
+						System.out.println(statusMessage);
+						moveHistory.add(statusMessage);
+						
 						fromHere.printOccupants();
 						toHere.printOccupants();
 					}//end if
@@ -742,7 +751,9 @@ public class clueLessModel {
 						player2.moved = true;
 						player2.move(toHere);
 						statusMessage = player2.name + " has been moved from " + fromHere.name + " to " + toHere.name;
-						System.out.println(player2.name + " has been moved from " + fromHere.name + " to " + toHere.name);
+						System.out.println(statusMessage);
+						moveHistory.add(statusMessage);
+						
 						fromHere.printOccupants();
 						toHere.printOccupants();
 					}//end if
@@ -754,7 +765,9 @@ public class clueLessModel {
 						player3.moved = true;
 						player3.move(toHere);
 						statusMessage = player3.name + " has been moved from " + fromHere.name + " to " + toHere.name;
-						System.out.println(player3.name + " has been moved from " + fromHere.name + " to " + toHere.name);
+						System.out.println(statusMessage);
+						moveHistory.add(statusMessage);
+						
 						fromHere.printOccupants();
 						toHere.printOccupants();
 					}//end if
@@ -766,7 +779,9 @@ public class clueLessModel {
 						player4.moved = true;
 						player4.move(toHere);
 						statusMessage = player4.name + " has been moved from " + fromHere.name + " to " + toHere.name;
-						System.out.println(player4.name + " has been moved from " + fromHere.name + " to " + toHere.name);
+						System.out.println(statusMessage);
+						moveHistory.add(statusMessage);
+						
 						fromHere.printOccupants();
 						toHere.printOccupants();
 					}//end if
@@ -778,7 +793,9 @@ public class clueLessModel {
 						player5.moved = true;
 						player5.move(toHere);
 						statusMessage = player5.name + " has been moved from " + fromHere.name + " to " + toHere.name;
-						System.out.println(player5.name + " has been moved from " + fromHere.name + " to " + toHere.name);
+						System.out.println(statusMessage);
+						moveHistory.add(statusMessage);
+						
 						fromHere.printOccupants();
 						toHere.printOccupants();
 					}//end if
@@ -790,15 +807,12 @@ public class clueLessModel {
 						player6.moved = true;
 						player6.move(toHere);
 						statusMessage = player6.name + " has been moved from " + fromHere.name + " to " + toHere.name;
-						System.out.println(player6.name + " has been moved from " + fromHere.name + " to " + toHere.name);
+						System.out.println(statusMessage);
+						moveHistory.add(statusMessage);
+						
 						fromHere.printOccupants();
 						toHere.printOccupants();
-					} // end if
-					
-					status.add(statusMessage);
-					System.out.println(statusMessage);
-					System.out.println();
-					
+					} // end if					
 					
 					for (Player p : playerList) {
 						Card[] c = p.proveOrDisproveSuggestion(player.suggestion);
@@ -900,6 +914,7 @@ public class clueLessModel {
 						System.out.println();
 						
 						player.disable();
+						numActivePlayers--;
 						endTurn();
 						
 						return false;
