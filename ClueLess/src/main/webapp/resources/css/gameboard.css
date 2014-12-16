@@ -13,6 +13,28 @@
 .token-disabled {
 	color: #3498db;
 }
+a {
+	position: relative;
+	display: inline;
+}
+a:after {
+	content:attr(title);
+	color:#fff;
+	background:#333;
+	background:rgba(51,51,51,0.75);
+	padding:5px;
+	position:absolute;
+	left:-9999px;
+	opacity:0;
+	bottom:100%;
+	white-space:nowrap;
+	-webkit-transition:0.25s linear opacity;
+
+}
+a:hover:after {
+	left:5px;
+	opacity:1;	
+}
 
 .abs {
 	position: absolute;
@@ -234,7 +256,95 @@ ul, li {
 }
 .scarlet:before {
  	content: url("../../resources/images/Scarlet_small.png");
+
  }
+
+li.scarlet:hover:after {
+	background:rgba(0, 0, 0, 0.5);
+	border:1px solid #1E5799;
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: "Ms. Scarlet";
+    left: -60%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 40px;
+    bottom: 100%;
+  
+}
+li.green:hover:after {
+	background:rgba(0, 0, 0, 0.5);
+	border:1px solid #1E5799;
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: "Mr. Green";
+    left: -60%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 40px;
+    bottom: 100%;
+}
+li.plum:hover:after {
+	background:rgba(0, 0, 0, 0.5);
+	border:1px solid #1E5799;
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: "Prof. Plum";
+    left: -60%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 40px;
+    bottom: 100%;
+}
+
+li.white:hover:after {
+	background:rgba(0, 0, 0, 0.5);
+	border:1px solid #1E5799;
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: "Mrs. White";
+    left: -60%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 40px;
+    bottom: 100%;
+}
+li.mustard:hover:after {
+	background:rgba(0, 0, 0, 0.5);
+	border:1px solid #1E5799;
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: "Col. Mustard";
+    left: -60%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 50px;
+    bottom: 100%;
+}
+li.peacock:hover:after {
+	background:rgba(0, 0, 0, 0.5);
+	border:1px solid #1E5799;
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: "Mrs. Peacock";
+    left: -60%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 50px;
+    bottom: 100%;
+}
 
 .mustard:before {
 	content: url("../../resources/images/Mustard_small.png");

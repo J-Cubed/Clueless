@@ -10,10 +10,8 @@
 <title>Main Menu</title>
 
 </head>
-<body>	
-	<h2>Game Screen</h2>
-	
-	<!-- 	<div style="float:right;width:40%;"> -->
+<body class= "gamescreen">	
+
 	<div class="top">
 		<button id="move" class="nav-button">Move</button>
 		
@@ -35,7 +33,7 @@
 	</div>
 	<div class="wrapper">
 		<aside class="aside aside-right">
-			<h3>Detective Notebook</h3>
+			<h2>Detective Notebook</h2>
 			<form id="frmDetNote" action="" method="post">
 			<div class="notebook-container">
 				<div class="notebook-item">
@@ -76,13 +74,14 @@
 			</form>
 		</aside>
 		<aside class="aside aside-left">
-			<h3>Game Board</h3>
+			<h2>Game Board</h2>
 			<div class="gameboard">
 				<c:forEach var="loc" items="${curLocations}">
 					<ul id="${loc}" class="abs">
 						<c:forEach var="plyr" items="${curPlayerLocations}">
-							<c:if test="${loc == plyr.value}">
+							<c:if test="${loc == plyr.value}">		
 								<li class="${plyr.key}"/>
+														
 							</c:if>
 						</c:forEach>
 					</ul>

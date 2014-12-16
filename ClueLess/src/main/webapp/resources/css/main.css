@@ -1,9 +1,23 @@
-h1, h2, h3, footer{
+h1, footer{
 	color: #3498db;
 	text-align: center;
 }
 
+h2, h3 {
+	-webkit-text-stroke: 1px black;
+	color: #3498db;
+	text-shadow:
+	3px 3px 1px #f8f8f8,
+	-1px -1px 1px #f8f8f8,  
+	1px -1px 1px #f8f8f8,
+	-1px 1px 1px #f8f8f8,
+	1px 1px 1px #f8f8f8;
+	text-align: center;
+}
 
+.gamescreen {
+	background: url("../../resources/images/WoodenWallpaper.jpg");
+}
 .center {
 	display: block;
 	margin-right: auto;
@@ -38,8 +52,12 @@ h1, h2, h3, footer{
 	padding: 10px;
 	flex: 1 100%;
 }
+.midsection{
+	
+}
 
 .notebook-container{ 
+
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -82,11 +100,14 @@ button {
 	margin: 20px;
 	text-align: center;
 	color:#fff;
-	font-size:20px;
+	font-size:18.5px;
 	padding: 10px 20px 10px 20px;
 	text-decoration: none;
 }
 
+.join {
+	font-size:18.5px;
+}
 .button-disabled {
 	background:#f8f8f8;
 	color:#888;
@@ -136,7 +157,11 @@ button:hover{
 
 .aside-right {
 
-/* 	background: yellow; */
+  	background: url("../../resources/images/NotePadBackground.jpg");
+  	background-position: center; 
+  	border: 2px;
+  	border-radius: 10px;
+  	border-style: outset;
 }
 
 /* @media all and (min-width: 600px){
@@ -155,7 +180,8 @@ button:hover{
 .status, .movehistory, .cards {
 	height:150px;
 	background:#3498db;
-	border:solid #3498db 1px;
+	border:solid #3498db 5px;
+	border-style: outset;
 	-webkit-border-radius: 5px;
   	-moz-border-radius: 5px;
 	border-radius: 5px;

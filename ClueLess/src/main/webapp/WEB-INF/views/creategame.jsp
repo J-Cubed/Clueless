@@ -20,12 +20,13 @@
 	<div>
 		<form id="createForm" method="post" action="">
 		Game Security: <select name="type"><option value="public" <c:if test="${type=='public'}">selected</c:if>>Public</option><option value="private" <c:if test="${type=='private'}">selected</c:if>>Private</option></select><br />
-		Game Name: <input type="text" name="name" value="${name}"><br />
-		Password: <input type="password" name="password" value=""><br />
+		<br />
+		Game Name: <input type="text" name="name" value="${name}">
+		Password: <input type="password" name="password" value=""><br /><br />
 		</form>
-		${errorMessage}
-		<button class="button" onClick="document.getElementById('createForm').submit();return false;">Create Game</button>
-		<button class="button floatright" onClick="location.href='mainmenu';return false;">Main Menu</button>
+		${errorMessage}<br />
+		<button onClick="document.getElementById('createForm').submit();return false;">Create Game</button>
+		<button onClick="location.href='mainmenu';return false;">Main Menu</button>
 	</div>
 </body>
 <footer class="footer">J-Cubed, Inc. 2014</footer>
