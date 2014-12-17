@@ -14,7 +14,16 @@
 	<img src="resources/images/Header_Logo-small.jpg">	
 	<h2>Confidential Case File</h2>
 	<h3>Game Over</h3>
-	<h4>The murder remains unsolved.</h4>
+	
+	<c:choose>
+	      <c:when test="${winnerName == ''}">
+	      	<h4>The murder remains unsolved.</h4>
+	      </c:when>
+		  <c:otherwise>
+	        <h4>${winnerName} wins the game.</h4>
+	      </c:otherwise>
+	</c:choose>
+	
 	<div>
 		<c:if test="${not empty casefile}">
 			<c:forEach var="card" items="${casefile}">

@@ -481,11 +481,17 @@ public class clueLessController {
 		if (game != null) {
 		
 			ArrayList<String> casefile = game.getGameBoard().getCaseFile();
+			Player winner = game.getGameBoard().getWinner();
+			String winnerName = "";
+			if (winner != null) {
+				winnerName = winner.name;
+			}
 			
 			System.out.println(errorMessage);
 	 
 			ModelAndView mv = new ModelAndView("gameover");
 			mv.addObject("errorMessage", errorMessage);
+			mv.addObject("winnerName", winnerName);
 			errorMessage = "";
 			mv.addObject("casefile", casefile);
 			return mv;

@@ -49,6 +49,7 @@ public class clueLessModel {
 	private Player player4;
 	private Player player5;
 	private Player player6;
+	private Player winner;
 	private Location hallway1;
 	private Location hallway2;
 	private Location hallway3;
@@ -171,6 +172,8 @@ public class clueLessModel {
 		playerList[3] = player4;
 		playerList[4] = player5;
 		playerList[5] = player6;
+		
+		winner = null;
 		
 		numActivePlayers = 0;
 		
@@ -942,10 +945,17 @@ public class clueLessModel {
 			System.out.println(statusMessage);
 			System.out.println();
 			
+			winner = player;
+			endGame();
+			
 			return true;
 		}//end if
 		
 		return false;
+	}
+	
+	public Player getWinner() {
+		return winner;
 	}
 	
 	public boolean isActive() {
